@@ -15,7 +15,7 @@ namespace PaymentSystem.Models
 
         public DateTime Date { get; set; }
 
-        public decimal Amount { get; set; }
+        public double Amount { get; set; }
 
         public string Status { get; set; }
 
@@ -26,7 +26,7 @@ namespace PaymentSystem.Models
     {
         public string Date { get; set; }
 
-        public decimal Amount { get; set; }
+        public double Amount { get; set; }
 
         public string Status { get; set; }
 
@@ -36,6 +36,6 @@ namespace PaymentSystem.Models
     public class AccountBalanceViewModel 
     { 
         public IEnumerable<PaymentListViewModel> PaymentList { get; set; }
-        public decimal AccountBalance { get; set; }
+        public double AccountBalance { get; set; }
     }
  }

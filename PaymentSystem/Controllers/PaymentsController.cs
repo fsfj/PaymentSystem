@@ -14,6 +14,13 @@ namespace PaymentSystem.Controllers
     [Route("api/[controller]")]
     public class PaymentsController : ControllerBase
     {
+        //private readonly DatabaseContext _DatabaseContext;
+
+        //public PaymentsController(DatabaseContext DatabaseContext)
+        //{
+        //    _DatabaseContext = DatabaseContext;
+        //}
+
         private readonly IPaymentManager _paymentManager;
         private readonly IUserManager _userManager;
 
@@ -25,7 +32,10 @@ namespace PaymentSystem.Controllers
 
         [HttpGet("getpayments")]
         public async Task<ActionResult> GetPayments()
-        { 
+        {
+            //PaymentManager _paymentManager = new PaymentManager(_DatabaseContext);
+            //UserManager _userManager = new UserManager(_DatabaseContext);
+
             var user = await Task.Run(() => _userManager.GetUser(User.Identity.Name)); //* i did this instead of joining users and payments user so that you can display the name of user if you want to * 
 
             var paymentLists = await Task.Run(() => _paymentManager.GetPaymentList(user.UserCode));

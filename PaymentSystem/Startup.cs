@@ -31,6 +31,8 @@ namespace PaymentSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseContext>(options => options.UseInMemoryDatabase(databaseName: "Payments"));
+
             services.AddControllers();
 
             var key = "this is my secret key"; // * this is the key for my token *
@@ -52,8 +54,8 @@ namespace PaymentSystem
             });
 
             services.AddSingleton<IAuthenticationManager>(new AuthenticationManager(key));
-            services.AddSingleton<IPaymentManager>(new PaymentManager());
-            services.AddSingleton<IUserManager>(new UserManager());
+            //services.AddSingleton<IPaymentManager, PaymentManager>();
+            //services.AddSingleton<IUserManager, UserManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
