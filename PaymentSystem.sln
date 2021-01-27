@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentSystem", "PaymentSystem\PaymentSystem.csproj", "{EFE95931-12F0-406A-AB36-10FF373506C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestPaymentSystem", "XUnitTestPaymentSystem\XUnitTestPaymentSystem.csproj", "{E902F58D-836C-4482-98D4-90321BEEE05C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFE95931-12F0-406A-AB36-10FF373506C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE95931-12F0-406A-AB36-10FF373506C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE95931-12F0-406A-AB36-10FF373506C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE95931-12F0-406A-AB36-10FF373506C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E902F58D-836C-4482-98D4-90321BEEE05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E902F58D-836C-4482-98D4-90321BEEE05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E902F58D-836C-4482-98D4-90321BEEE05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E902F58D-836C-4482-98D4-90321BEEE05C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3C12D09-A154-422E-B974-1607BC7A6EDE}
+	EndGlobalSection
+EndGlobal
