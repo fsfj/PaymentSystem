@@ -23,6 +23,11 @@ namespace PaymentSystem.Models
                     return;   // Data was already seeded
                 }
 
+                if (context.UserCredentials.Any())
+                {
+                    return;   // Data was already seeded
+                }
+
                 context.Users.AddRange(
                     new Users
                     {
@@ -90,6 +95,20 @@ namespace PaymentSystem.Models
                         Amount = 1430.36,
                         Status = "Open",
                         Reason = ""
+                    });
+
+                context.UserCredentials.AddRange(
+                    new UserCredentials
+                    {
+                        ID = 1,
+                        Username = "usertest1",
+                        Password = "CmTXmMMVWag/NXP3BhKUk9FlSyrbPIsdyyyjDFNuW2Y="
+                    },
+                    new UserCredentials
+                    {
+                        ID = 2,
+                        Username = "usertest2",
+                        Password = "CmTXmMMVWag/NXP3BhKUk/UOWcqxS/fRJvCA5TFIrPY="
                     });
 
                 context.SaveChanges();

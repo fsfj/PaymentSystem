@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using PaymentSystem.Interface;
+using PaymentSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,33 +9,32 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaymentSystem.Models
+namespace PaymentSystem.Manager
 {
     public class AuthenticationManager : IAuthenticationManager
     {
-        // * create a user and password *
-        private readonly IDictionary<string, string> users = new Dictionary<string, string>
+        private readonly DatabaseContext _DatabaseContext;
+
+        public AuthenticationManager(DatabaseContext DatabaseContext)
         {
-            { "usertest1", "password1" },
-            { "usertest2", "password2" }
-        };
-
-        private readonly string _key;
-
-        public AuthenticationManager (string key){
-            _key = key;
+            _DatabaseContext = DatabaseContext;
         }
 
         // this process is to create a token for authentication
         public string Authenticate(string username, string password) 
         {
-            if (!users.Any(i => i.Key == username && i.Value == password)) // * check if user exists in the table *
+            Encryptor encryptor = new Encryptor();
+            var eK = encryptor.EncryptionKey();
+
+            var encryptedPassword = encryptor.Encrypt(password, eK); // this is to assume that password is ecrypted
+
+            if (!_DatabaseContext.UserCredentials.Any(i => i.Username == username && i.Password == encryptedPassword)) // * check if user exists in the table *
             {
                 return null;
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenKey = Encoding.ASCII.GetBytes(_key);
+            var tokenKey = Encoding.ASCII.GetBytes("this is the key for my token");
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]

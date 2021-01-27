@@ -35,7 +35,10 @@ namespace PaymentSystem.Models
 
     public class AccountBalanceViewModel 
     { 
-        public IEnumerable<PaymentListViewModel> PaymentList { get; set; }
+        public string AccountNumber { get; set; }
+
         public double AccountBalance { get; set; }
+
+        public IEnumerable<PaymentListViewModel> PaymentList { get; set; }
     }
  }

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using PaymentSystem.Interface;
+using PaymentSystem.Manager;
 using PaymentSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,8 @@ namespace PaymentSystem
 
             services.AddControllers();
 
-            var key = "this is my secret key"; // * this is the key for my token *
+            //var test = Configuration.GetValue<string>("Key");
+            var key = "this is the key for my token"; // * this is the key for my token *
 
             services.AddAuthentication(i =>
             {
@@ -53,9 +55,10 @@ namespace PaymentSystem
                 };
             });
 
-            services.AddSingleton<IAuthenticationManager>(new AuthenticationManager(key));
-            //services.AddSingleton<IPaymentManager, PaymentManager>();
-            //services.AddSingleton<IUserManager, UserManager>();
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddTransient<IAuthenticationManager, AuthenticationManager>();
+            services.AddTransient<IPaymentManager, PaymentManager>();
+            services.AddTransient<IUserManager, UserManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

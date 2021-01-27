@@ -16,5 +16,6 @@ namespace PaymentSystem.Models
 
         public DbSet<Payments> Payments { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<UserCredentials> UserCredentials { get; set; }
     }
 }

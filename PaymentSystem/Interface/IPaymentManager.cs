@@ -8,6 +8,6 @@ namespace PaymentSystem.Interface
 {
     public interface IPaymentManager
     {
-        IEnumerable<PaymentListViewModel> GetPaymentList(string userCode);
+        IEnumerable<Payments> GetPaymentList(string userCode);
     }
 }
