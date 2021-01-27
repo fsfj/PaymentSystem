@@ -35,6 +35,23 @@ namespace XUnitTestPaymentSystem
         }
 
         [Fact]
+        public async Task TestGetPaymentsApiInvalidCredentials()
+        {
+            var authenticationManager = new PaymentSystem.Models.AuthenticationManager("this is my secret key");
+
+            using (var client = new TestClientProvider().Client)
+            {
+                client.DefaultRequestHeaders.Authorization
+                         = new AuthenticationHeaderValue("Bearer", authenticationManager.Authenticate("usertest1", "password2")); // this test should be unauthorize since paswword is incorrect
+
+                var response = await client
+                    .GetAsync("/api/payments/getpayments");
+
+                response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+            }
+        }
+
+        [Fact]
         public async Task TestAuthenticateApi()
         {
             using (var client = new TestClientProvider().Client)
@@ -52,6 +69,25 @@ namespace XUnitTestPaymentSystem
                 response.EnsureSuccessStatusCode();
 
                 response.StatusCode.Should().Be(HttpStatusCode.OK);
+            }
+        }
+
+        [Fact]
+        public async Task TestAuthenticateApiInvalidCredentials()
+        {
+            using (var client = new TestClientProvider().Client)
+            {
+                var response = await client.PostAsync("/api/account/authenticate"
+                        , new StringContent(
+                        JsonConvert.SerializeObject(new UserCredentials()
+                        {
+                            Username = "usertest1",
+                            Password = "password2" // this test should be unauthorize since paswword is incorrect
+                        }),
+                    Encoding.UTF8,
+                    "application/json"));
+
+                response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
             }
         }
 

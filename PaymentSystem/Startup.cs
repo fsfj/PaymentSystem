@@ -69,7 +69,6 @@ namespace PaymentSystem
             app.UseRouting();
 
             // * this is to enable authentication *
-
             app.UseAuthentication();
             app.UseAuthorization(); 
 

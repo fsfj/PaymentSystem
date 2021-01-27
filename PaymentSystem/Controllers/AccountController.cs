@@ -30,7 +30,7 @@ namespace PaymentSystem.Controllers
             var token = _authenticationManager.Authenticate(userCredentials.Username, userCredentials.Password);
 
             if(token == null)
-                return Unauthorized();
+                return Unauthorized(); // if incorrect username or password.
             return Ok(token);
         }
     }

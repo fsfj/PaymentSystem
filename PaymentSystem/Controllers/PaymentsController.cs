@@ -25,9 +25,7 @@ namespace PaymentSystem.Controllers
 
         [HttpGet("getpayments")]
         public async Task<ActionResult> GetPayments()
-        {
-            // * this is the return of payments as you notice i didn't include order by since i have an index in SQL server to *
-
+        { 
             var user = await Task.Run(() => _userManager.GetUser(User.Identity.Name)); //* i did this instead of joining users and payments user so that you can display the name of user if you want to * 
 
             var paymentLists = await Task.Run(() => _paymentManager.GetPaymentList(user.UserCode));

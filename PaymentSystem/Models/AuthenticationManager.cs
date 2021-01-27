@@ -25,6 +25,7 @@ namespace PaymentSystem.Models
             _key = key;
         }
 
+        // this process is to create a token for authentication
         public string Authenticate(string username, string password) 
         {
             if (!users.Any(i => i.Key == username && i.Value == password)) // * check if user exists in the table *
