@@ -42,7 +42,7 @@ To test the api it should be in postman, I created a basic authentication with J
 
 * Then click Send there should be a JSON output in the body. <br />
 
+* In terms of CI/CD, I connected it to the Azure DevOps and generate a pipeline and configure the pipeline as necessary. I also include testing in the pipeline so that we can verify that the code is stable. I included the YML file in solution. <br />
 
-
-
+* check the azure pipline tag here : https://dev.azure.com/erroliantamayo/PaymentSystem/_apis/build/status/PaymentSystem-ASP.NET%20Core-CI?branchName=master
 
