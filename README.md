@@ -18,7 +18,6 @@ Tools Needed.
 I made a UseInMemoryDatabase to store the data. <br />
 The sample username and password is <br />
 
-<br />
 User 1 <br />
 username : usertest1 <br />
 password : password1 <br />
@@ -31,13 +30,13 @@ To test the api it should be in postman, I created a basic authentication with J
 
 * To authenticate paste the link https://localhost/api/account/authenticate (the localhost is base on your workstation) <br />
 * Set the  HTTP verbs to POST, then add the Headers <br />
-Key : Content-Type <br />
-Value : application/json <br />
+      * Key : Content-Type <br />
+      * Value : application/json <br />
 
 * Then go to Body then input { "username": "usertest1", "password":"password1"} or { "username": "usertest2", "password":"password2" } depends on what user you wanted to use. <br />
 * Then click Send button, in the response  there should be a Token. copy the formatted text token. <br />
 
-example token :  <br /><strong>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXJ0ZXN0MiIsIm5iZiI6MTYxMTc1NjgxOCwiZXhwIjoxNjExNzYwNDE4LCJpYXQiOjE2MTE3NTY4MTh9.h4NVUi4LuMLRrYAm2r7i-qynd0ypa5B9J6VqPcoessk</strong>  <br />
+    * Example token : <strong>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXJ0ZXN0MiIsIm5iZiI6MTYxMTc1NjgxOCwiZXhwIjoxNjExNzYwNDE4LCJpYXQiOjE2MTE3NTY4MTh9.h4NVUi4LuMLRrYAm2r7i-qynd0ypa5B9J6VqPcoessk</strong>  <br />
 
 * Go to the https://localhost/api/payments/GetPayments  set the  HTTP verbs to GET then add the Headers <br />
 Example. <br />
