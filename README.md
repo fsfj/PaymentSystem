@@ -36,11 +36,11 @@ To test the api it should be in postman, I created a basic authentication with J
 * Then go to Body then input { "username": "usertest1", "password":"password1"} or { "username": "usertest2", "password":"password2" } depends on what user you wanted to use. <br />
 * Then click Send button, in the response  there should be a Token. copy the formatted text token. <br />
 * Go to the https://localhost/api/payments/GetPayments  set the  HTTP verbs to GET then add the Headers <br />
-Example. <br />
-Key : Authorization <br />
-Value : Bearer  <strong>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXJ0ZXN0MiIsIm5iZiI6MTYxMTc1NjgxOCwiZXhwIjoxNjExNzYwNDE4LCJpYXQiOjE2MTE3NTY4MTh9.h4NVUi4LuMLRrYAm2r7i-qynd0ypa5B9J6VqPcoessk </strong><br />
+    Example. <br />
+    * Key : Authorization <br />
+    * Value : Bearer  <strong>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXJ0ZXN0MiIsIm5iZiI6MTYxMTc1NjgxOCwiZXhwIjoxNjExNzYwNDE4LCJpYXQiOjE2MTE3NTY4MTh9.h4NVUi4LuMLRrYAm2r7i-qynd0ypa5B9J6VqPcoessk </strong><br />
 
-then click Send there should be a JSON output in the body. <br />
+* Then click Send there should be a JSON output in the body. <br />
 
 
 
