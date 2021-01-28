@@ -27,9 +27,9 @@ namespace XUnitTestPaymentSystem
 
             var context = new DatabaseContext(options);
 
-            if (!context.Users.Any())
+            if (!context.Users.Any()) // checking if the data is already created
             {
-                // the data will be seeded here.
+                // the data will be seeded here. 
 
                 context.Users.AddRange(
                 new Users
@@ -54,7 +54,7 @@ namespace XUnitTestPaymentSystem
                 });
             }
 
-            if (!context.Payments.Any())
+            if (!context.Payments.Any()) // checking if the data is already created
             {
                 // the data will be seeded here.
 
@@ -106,7 +106,7 @@ namespace XUnitTestPaymentSystem
                 });
             }
 
-            if (!context.UserCredentials.Any())
+            if (!context.UserCredentials.Any()) // checking if the data is already created
             {
                 // the data will be seeded here.
 
@@ -147,8 +147,6 @@ namespace XUnitTestPaymentSystem
 
                 response.StatusCode.Should().Be(HttpStatusCode.OK);
             }
-
-            _databaseContext.Dispose();
         }
 
         [Fact]
@@ -166,8 +164,6 @@ namespace XUnitTestPaymentSystem
 
                 response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
             }
-
-            _databaseContext.Dispose();
         }
 
         [Fact]
@@ -205,8 +201,6 @@ namespace XUnitTestPaymentSystem
                         }),
                     Encoding.UTF8,
                     "application/json"));
-
-                _databaseContext.Dispose();
 
                 response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
             }

@@ -37,7 +37,7 @@ namespace PaymentSystem.Controllers
 
             AccountBalanceViewModel accountBalanceViewModel = new AccountBalanceViewModel
             {
-                AccountNumber = user.AccountNumber,
+                AccountNumber = user.AccountNumber, // I assume that you need to look into account number if you want to see your paymentdetails.
                 AccountBalance = paymentLists.Sum(i => i.Amount), // * I assume that you need to get the sum of payments to get the Account balance of user. *
                 PaymentList = paymentLists,
             };
